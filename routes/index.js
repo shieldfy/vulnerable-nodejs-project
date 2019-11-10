@@ -6,7 +6,7 @@ const { getItems, addItem, deleteItem, updateItem, search } = require('../contro
 router.get('/', getItems)
 router.post('/', addItem)
 router.delete('/:id', deleteItem)
-router.update('/', updateItem)
+router.put('/', updateItem)
 
 // search in the list
 router.get('/search', search)
