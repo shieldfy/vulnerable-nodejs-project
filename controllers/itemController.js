@@ -23,29 +23,9 @@ const addItem = async (req, res) => {
 	}
 }
 
-const deleteItem = async (req, res) => {
-	try {
-		await Item.findByIdAndRemove(req.body.id)
-		return res.status(200).json({ message: 'success' })
-	} catch (error) {
-		return res.status(500).json({ message: 'something went wrong!', error: error.stack })
-	}
-}
-
-const updateItem = async (req, res) => {
-	try {
-		const { id, name, content, date } = req.body
-        const updatedItem = await Item.findByIdAndUpdate(id, { name, content, date }, { new: true })
-        return res.status(200).json({ message: 'success', updatedItem })
-	} catch (error) {        
-		return res.status(500).json({ message: 'something went wrong!', error: error.stack })
-	}
-}
-
 const search = async (req, res) => {
     try {
-		const query = req.body.query
-        const result = await Item.find({ name: query })
+        const result = await Item.find({ name: req.body.query })
         return res.status(200).json({ message: 'success', result })
 	} catch (error) {
 		return res.status(500).json({ message: 'something went wrong!', error: error.stack })
@@ -55,7 +35,5 @@ const search = async (req, res) => {
 module.exports = {
 	getItems,
 	addItem,
-	deleteItem,
-	updateItem,
 	search
 }
