@@ -43,7 +43,7 @@ const updateItem = async (req, res) => {
 	}
 }
 
-const search = async () => {
+const search = async (req, res) => {
     try {
 		const { query } = req.body
         const result = await Item.find({ name: query })
