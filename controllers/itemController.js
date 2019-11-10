@@ -1,5 +1,4 @@
 const Item = require('../models/item')
-const moment = require('moment');
 
 const getItems = async (req, res) => {
 	try {
