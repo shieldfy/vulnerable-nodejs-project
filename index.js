@@ -17,5 +17,6 @@ app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 
 // todo item routes
 router.use('/item', require('./routes/index'));
+app.use('/', router)
 
 app.listen(process.env.PORT, () => console.log(`app running on port ${process.env.PORT}`))
