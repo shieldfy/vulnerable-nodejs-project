@@ -9,6 +9,6 @@ router.delete('/:id', deleteItem)
 router.put('/', updateItem)
 
 // search in the list
-router.get('/search', search)
+router.post('/search', search)
 
 module.exports = router

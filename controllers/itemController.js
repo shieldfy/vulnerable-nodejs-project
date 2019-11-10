@@ -44,7 +44,7 @@ const updateItem = async (req, res) => {
 
 const search = async (req, res) => {
     try {
-		const { query } = req.body
+		const query = req.body.query
         const result = await Item.find({ name: query })
         return res.status(200).json({ message: 'success', result })
 	} catch (error) {
